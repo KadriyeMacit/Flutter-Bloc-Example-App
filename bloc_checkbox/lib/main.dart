@@ -14,6 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Colors.purpleAccent,
+        primarySwatch: Colors.purple,
+      ),
       home: RepositoryProvider(
         create: (context) => LoginRepository(),
         child: LoginScreen(),

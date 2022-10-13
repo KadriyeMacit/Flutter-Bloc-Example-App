@@ -12,17 +12,19 @@ class LoginButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
-      return state.formStatus is FormSubmitting
-          ? const CircularProgressIndicator()
-          : ElevatedButton(
-              onPressed: () {
-                if (formKey.currentState!.validate()) {
-                  context.read<LoginBloc>().add(LoginSubmitted());
-                }
-              },
-              child: const Text('Login'),
-            );
-    });
+    return BlocBuilder<LoginBloc, LoginState>(
+      builder: (context, state) {
+        return state.formStatus is FormSubmitting
+            ? const Center(child: CircularProgressIndicator())
+            : ElevatedButton(
+                onPressed: () {
+                  if (formKey.currentState!.validate()) {
+                    context.read<LoginBloc>().add(LoginSubmitted());
+                  }
+                },
+                child: const Text('Login'),
+              );
+      },
+    );
   }
 }
