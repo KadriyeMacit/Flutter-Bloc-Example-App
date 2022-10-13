@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       ),
       home: RepositoryProvider(
         create: (context) => LoginRepository(),
-        child: LoginScreen(),
+        child: const LoginScreen(),
       ),
     );
   }
