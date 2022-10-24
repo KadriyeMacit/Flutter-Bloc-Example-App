@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final LoginRepository? authRepo;
 
-  LoginBloc({this.authRepo}) : super(LoginState()) {
+  LoginBloc({this.authRepo}) : super(const LoginState()) {
     on<LoginEvent>((event, emit) async {
       await mapEventToState(event, emit);
     });

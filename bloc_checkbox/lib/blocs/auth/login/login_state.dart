@@ -1,6 +1,7 @@
 import 'package:bloc_example_app/views/auth/form_submission_status.dart';
+import 'package:equatable/equatable.dart';
 
-class LoginState {
+class LoginState extends Equatable {
   final String username;
   bool get isValidUsername => username.length > 3;
 
@@ -9,7 +10,7 @@ class LoginState {
 
   final FormSubmissionStatus formStatus;
 
-  LoginState({
+  const LoginState({
     this.username = '',
     this.password = '',
     this.formStatus = const InitialFormStatus(),
@@ -26,4 +27,7 @@ class LoginState {
       formStatus: formStatus ?? this.formStatus,
     );
   }
+
+  @override
+  List<Object?> get props => [username, password, formStatus];
 }
