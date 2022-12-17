@@ -2,13 +2,13 @@ import 'package:equatable/equatable.dart';
 
 abstract class LoginEvent extends Equatable {}
 
-class LoginUsernameChanged extends LoginEvent {
-  final String? username;
+class LoginEmailChanged extends LoginEvent {
+  final String? email;
 
-  LoginUsernameChanged({this.username});
+  LoginEmailChanged({this.email});
 
   @override
-  List<Object?> get props => [username];
+  List<Object?> get props => [email];
 }
 
 class LoginPasswordChanged extends LoginEvent {

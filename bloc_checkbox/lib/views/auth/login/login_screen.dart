@@ -3,7 +3,8 @@ import 'package:bloc_example_app/blocs/auth/login/login_bloc.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_state.dart';
 import 'package:bloc_example_app/repository/auth/login/login_repository.dart';
 import 'package:bloc_example_app/views/auth/form_submission_status.dart';
-import 'package:bloc_example_app/views/auth/login/widgets/form_widget.dart';
+import 'package:bloc_example_app/views/auth/widgets/form_widget.dart';
+import 'package:bloc_example_app/views/auth/widgets/have_account_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,8 +16,7 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       body: BlocProvider(
-        create: (context) =>
-            LoginBloc(authRepo: context.read<LoginRepository>()),
+        create: (context) => LoginBloc(authRepo: LoginRepository()),
         child: BlocListener<LoginBloc, LoginState>(
           listenWhen: (previous, current) =>
               previous.formStatus != current.formStatus,
@@ -30,12 +30,16 @@ class LoginScreen extends StatelessWidget {
           child: Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Image.asset(AppAssets.yogaGirl),
-                  FormWidget(),
-                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset(AppAssets.yogaGirl),
+                    FormWidget(isLogin: true),
+                    const SizedBox(height: 10),
+                    const HaveAccountText(isLogin: true),
+                  ],
+                ),
               ),
             ),
           ),

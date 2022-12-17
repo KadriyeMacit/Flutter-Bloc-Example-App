@@ -14,9 +14,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   Future mapEventToState(LoginEvent event, Emitter<LoginState> emit) async {
-    // Username updated
-    if (event is LoginUsernameChanged) {
-      emit(state.copyWith(username: event.username));
+    // Email updated
+    if (event is LoginEmailChanged) {
+      emit(state.copyWith(email: event.email));
 
       // Password updated
     } else if (event is LoginPasswordChanged) {

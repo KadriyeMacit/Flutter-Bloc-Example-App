@@ -1,12 +1,13 @@
-import 'package:bloc_example_app/views/auth/login/widgets/login_button.dart';
-import 'package:bloc_example_app/views/auth/login/widgets/password_field.dart';
-import 'package:bloc_example_app/views/auth/login/widgets/username_field.dart';
+import 'package:bloc_example_app/views/auth/widgets/auth_button.dart';
+import 'package:bloc_example_app/views/auth/widgets/password_field.dart';
+import 'package:bloc_example_app/views/auth/widgets/email_field.dart';
 import 'package:flutter/material.dart';
 
 class FormWidget extends StatelessWidget {
-  FormWidget({Key? key}) : super(key: key);
+  FormWidget({Key? key, required this.isLogin}) : super(key: key);
 
   final dynamic _formKey = GlobalKey<FormState>();
+  final bool isLogin;
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +24,14 @@ class FormWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.min,
           children: [
-            const UsernameField(),
-            const PasswordField(),
+            EmailField(isLogin: isLogin),
+            PasswordField(isLogin: isLogin),
             const SizedBox(
               height: 15,
             ),
-            LoginButton(
+            AuthButton(
               formKey: _formKey,
+              isLogin: isLogin,
             ),
           ],
         ),
