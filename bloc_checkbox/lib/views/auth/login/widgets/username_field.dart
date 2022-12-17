@@ -1,3 +1,4 @@
+import 'package:bloc_example_app/src/app_strings.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_bloc.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_event.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_state.dart';
@@ -14,10 +15,10 @@ class UsernameField extends StatelessWidget {
         return TextFormField(
           decoration: const InputDecoration(
             icon: Icon(Icons.person),
-            hintText: 'Username',
+            hintText: AppStrings.username,
           ),
           validator: (value) =>
-              state.isValidUsername ? null : 'Username is too short',
+              state.isValidUsername ? null : AppStrings.isValidUsernameMessage,
           onChanged: (value) => context.read<LoginBloc>().add(
                 LoginUsernameChanged(username: value),
               ),

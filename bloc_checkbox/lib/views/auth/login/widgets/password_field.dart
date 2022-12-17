@@ -1,3 +1,4 @@
+import 'package:bloc_example_app/src/app_strings.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_bloc.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_event.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_state.dart';
@@ -14,10 +15,10 @@ class PasswordField extends StatelessWidget {
         obscureText: true,
         decoration: const InputDecoration(
           icon: Icon(Icons.key),
-          hintText: 'Password',
+          hintText: AppStrings.password,
         ),
         validator: (value) =>
-            state.isValidPassword ? null : 'Password is too short',
+            state.isValidPassword ? null : AppStrings.isValidPasswordMessage,
         onChanged: (value) => context.read<LoginBloc>().add(
               LoginPasswordChanged(password: value),
             ),

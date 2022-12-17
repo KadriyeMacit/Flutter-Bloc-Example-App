@@ -1,3 +1,4 @@
+import 'package:bloc_example_app/src/app_assets.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_bloc.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_state.dart';
 import 'package:bloc_example_app/repository/auth/login/login_repository.dart';
@@ -32,7 +33,7 @@ class LoginScreen extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Image.asset("assets/yoga-girl.png"),
+                  Image.asset(AppAssets.yogaGirl),
                   FormWidget(),
                 ],
               ),

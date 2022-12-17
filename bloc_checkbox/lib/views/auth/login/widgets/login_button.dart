@@ -1,3 +1,4 @@
+import 'package:bloc_example_app/src/app_strings.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_bloc.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_event.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_state.dart';
@@ -22,7 +23,7 @@ class LoginButton extends StatelessWidget {
                     context.read<LoginBloc>().add(LoginSubmitted());
                   }
                 },
-                child: const Text('Login'),
+                child: const Text(AppStrings.login),
               );
       },
     );
