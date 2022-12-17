@@ -2,6 +2,7 @@ import 'package:bloc_example_app/src/app_assets.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_bloc.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_state.dart';
 import 'package:bloc_example_app/repository/auth/login/login_repository.dart';
+import 'package:bloc_example_app/src/app_colors.dart';
 import 'package:bloc_example_app/views/auth/form_submission_status.dart';
 import 'package:bloc_example_app/views/auth/widgets/form_widget.dart';
 import 'package:bloc_example_app/views/auth/widgets/have_account_text.dart';
@@ -14,7 +15,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade200,
+      backgroundColor: AppColors.pageColor,
       body: BlocProvider(
         create: (context) => LoginBloc(authRepo: LoginRepository()),
         child: BlocListener<LoginBloc, LoginState>(

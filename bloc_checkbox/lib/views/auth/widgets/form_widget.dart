@@ -1,3 +1,4 @@
+import 'package:bloc_example_app/src/app_colors.dart';
 import 'package:bloc_example_app/views/auth/widgets/auth_button.dart';
 import 'package:bloc_example_app/views/auth/widgets/password_field.dart';
 import 'package:bloc_example_app/views/auth/widgets/email_field.dart';
@@ -14,7 +15,7 @@ class FormWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Form(
