@@ -20,9 +20,9 @@ class RegisterScreen extends StatelessWidget {
         create: (context) => RegisterBloc(authRepo: RegisterRepository()),
         child: BlocListener<RegisterBloc, RegisterState>(
           listenWhen: (previous, current) =>
-              previous.formStatus != current.formStatus,
+              previous.appStatus != current.appStatus,
           listener: (context, state) {
-            final formStatus = state.formStatus;
+            final formStatus = state.appStatus;
 
             if (formStatus is SubmissionFailed) {
               _showSnackBar(context, formStatus.exception.toString());

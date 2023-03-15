@@ -15,13 +15,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   Future mapEventToState(HomeEvent event, Emitter<HomeState> emit) async {
     if (event is HomeGetCardData) {
-      emit(state.copyWith(formStatus: FormSubmitting()));
-
+      emit(state.copyWith(appStatus: SubmissionLoading()));
       try {
-        await homeRepo?.getCardData();
-        emit(state.copyWith(formStatus: SubmissionSuccess()));
+        await homeRepo?.getHomeCard();
+        emit(state.copyWith(appStatus: const SubmissionSuccess()));
+        emit(state.copyWith(homeCardModel: await homeRepo?.getHomeCard()));
       } catch (e) {
-        emit(state.copyWith(formStatus: SubmissionFailed(e)));
+        emit(state.copyWith(appStatus: SubmissionFailed(e)));
       }
     }
   }

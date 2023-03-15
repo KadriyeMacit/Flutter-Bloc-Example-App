@@ -8,26 +8,26 @@ class LoginState extends Equatable {
   final String password;
   bool get isValidPassword => password.length > 6;
 
-  final FormSubmissionStatus formStatus;
+  final AppSubmissionStatus appStatus;
 
   const LoginState({
     this.email = '',
     this.password = '',
-    this.formStatus = const InitialFormStatus(),
+    this.appStatus = const InitialStatus(),
   });
 
   LoginState copyWith({
     String? email,
     String? password,
-    FormSubmissionStatus? formStatus,
+    AppSubmissionStatus? appStatus,
   }) {
     return LoginState(
       email: email ?? this.email,
       password: password ?? this.password,
-      formStatus: formStatus ?? this.formStatus,
+      appStatus: appStatus ?? this.appStatus,
     );
   }
 
   @override
-  List<Object?> get props => [email, password, formStatus];
+  List<Object?> get props => [email, password, appStatus];
 }

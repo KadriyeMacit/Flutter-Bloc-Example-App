@@ -1,3 +1,5 @@
+import 'package:bloc_example_app/blocs/home/home_bloc.dart';
+import 'package:bloc_example_app/blocs/home/home_event.dart';
 import 'package:bloc_example_app/src/app_assets.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_bloc.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_state.dart';
@@ -21,9 +23,9 @@ class LoginScreen extends StatelessWidget {
         create: (context) => LoginBloc(authRepo: LoginRepository()),
         child: BlocListener<LoginBloc, LoginState>(
           listenWhen: (previous, current) =>
-              previous.formStatus != current.formStatus,
+              previous.appStatus != current.appStatus,
           listener: (context, state) {
-            final formStatus = state.formStatus;
+            final formStatus = state.appStatus;
 
             if (formStatus is SubmissionFailed) {
               _showSnackBar(context, formStatus.exception.toString());
@@ -61,7 +63,7 @@ class LoginScreen extends StatelessWidget {
   void _goToHome(BuildContext context) {
     Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (context) => HomeScreen()),
+        MaterialPageRoute(builder: (context) => const HomeScreen()),
         (route) => false);
   }
 }

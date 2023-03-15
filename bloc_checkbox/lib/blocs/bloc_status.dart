@@ -1,16 +1,20 @@
-abstract class FormSubmissionStatus {
-  const FormSubmissionStatus();
+abstract class AppSubmissionStatus {
+  const AppSubmissionStatus();
 }
 
-class InitialFormStatus extends FormSubmissionStatus {
-  const InitialFormStatus();
+class InitialStatus extends AppSubmissionStatus {
+  const InitialStatus();
 }
 
-class FormSubmitting extends FormSubmissionStatus {}
+class FormSubmitting extends AppSubmissionStatus {}
 
-class SubmissionSuccess extends FormSubmissionStatus {}
+class SubmissionLoading extends AppSubmissionStatus {}
 
-class SubmissionFailed extends FormSubmissionStatus {
+class SubmissionSuccess extends AppSubmissionStatus {
+  const SubmissionSuccess();
+}
+
+class SubmissionFailed extends AppSubmissionStatus {
   final Object exception;
 
   SubmissionFailed(this.exception);

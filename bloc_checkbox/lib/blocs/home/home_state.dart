@@ -1,21 +1,26 @@
 import 'package:bloc_example_app/blocs/bloc_status.dart';
+import 'package:bloc_example_app/repository/home/model/home_card_model.dart';
 import 'package:equatable/equatable.dart';
 
 class HomeState extends Equatable {
-  final FormSubmissionStatus formStatus;
+  final HomeCardModel? homeCardModel;
+  final AppSubmissionStatus appStatus;
 
   const HomeState({
-    this.formStatus = const InitialFormStatus(),
+    this.homeCardModel,
+    this.appStatus = const InitialStatus(),
   });
 
   HomeState copyWith({
-    FormSubmissionStatus? formStatus,
+    HomeCardModel? homeCardModel,
+    AppSubmissionStatus? appStatus,
   }) {
     return HomeState(
-      formStatus: formStatus ?? this.formStatus,
+      homeCardModel: homeCardModel ?? this.homeCardModel,
+      appStatus: appStatus ?? this.appStatus,
     );
   }
 
   @override
-  List<Object?> get props => [formStatus];
+  List<Object?> get props => [homeCardModel, appStatus];
 }

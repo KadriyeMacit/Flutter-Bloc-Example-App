@@ -25,13 +25,13 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
 
       // Form submitted
     } else if (event is RegisterSubmitted) {
-      emit(state.copyWith(formStatus: FormSubmitting()));
+      emit(state.copyWith(appStatus: FormSubmitting()));
 
       try {
         await authRepo?.register();
-        emit(state.copyWith(formStatus: SubmissionSuccess()));
+        emit(state.copyWith(appStatus: SubmissionSuccess()));
       } catch (e) {
-        emit(state.copyWith(formStatus: SubmissionFailed(e)));
+        emit(state.copyWith(appStatus: SubmissionFailed(e)));
       }
     }
   }

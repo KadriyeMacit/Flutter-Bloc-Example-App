@@ -21,7 +21,7 @@ class AuthButton extends StatelessWidget {
     return isLogin
         ? BlocBuilder<LoginBloc, LoginState>(
             builder: (context, state) {
-              return state.formStatus is FormSubmitting
+              return state.appStatus is FormSubmitting
                   ? const Center(child: CircularProgressIndicator())
                   : ElevatedButton(
                       onPressed: () {
@@ -36,7 +36,7 @@ class AuthButton extends StatelessWidget {
           )
         : BlocBuilder<RegisterBloc, RegisterState>(
             builder: (context, state) {
-              return state.formStatus is FormSubmitting
+              return state.appStatus is FormSubmitting
                   ? const Center(child: CircularProgressIndicator())
                   : ElevatedButton(
                       onPressed: () {
