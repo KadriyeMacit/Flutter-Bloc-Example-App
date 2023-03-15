@@ -1,4 +1,4 @@
-import 'package:bloc_example_app/views/auth/form_submission_status.dart';
+import 'package:bloc_example_app/blocs/bloc_status.dart';
 import 'package:equatable/equatable.dart';
 
 class LoginState extends Equatable {

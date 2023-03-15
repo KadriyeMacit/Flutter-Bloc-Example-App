@@ -1,7 +1,7 @@
 import 'package:bloc_example_app/blocs/auth/register/register_event.dart';
 import 'package:bloc_example_app/blocs/auth/register/register_state.dart';
 import 'package:bloc_example_app/repository/auth/register/register_repository.dart';
-import 'package:bloc_example_app/views/auth/form_submission_status.dart';
+import 'package:bloc_example_app/blocs/bloc_status.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {

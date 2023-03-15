@@ -5,7 +5,7 @@ import 'package:bloc_example_app/src/app_strings.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_bloc.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_event.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_state.dart';
-import 'package:bloc_example_app/views/auth/form_submission_status.dart';
+import 'package:bloc_example_app/blocs/bloc_status.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

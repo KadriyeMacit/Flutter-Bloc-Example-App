@@ -3,7 +3,7 @@ import 'package:bloc_example_app/blocs/auth/register/register_state.dart';
 import 'package:bloc_example_app/repository/auth/register/register_repository.dart';
 import 'package:bloc_example_app/src/app_assets.dart';
 import 'package:bloc_example_app/src/app_colors.dart';
-import 'package:bloc_example_app/views/auth/form_submission_status.dart';
+import 'package:bloc_example_app/blocs/bloc_status.dart';
 import 'package:bloc_example_app/views/auth/widgets/form_widget.dart';
 import 'package:bloc_example_app/views/auth/widgets/have_account_text.dart';
 import 'package:flutter/material.dart';

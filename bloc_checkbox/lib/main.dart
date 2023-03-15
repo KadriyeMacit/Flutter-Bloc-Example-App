@@ -1,7 +1,8 @@
 import 'package:bloc_example_app/blocs/auth/login/login_bloc.dart';
 import 'package:bloc_example_app/blocs/auth/register/register_bloc.dart';
+import 'package:bloc_example_app/blocs/home/home_bloc.dart';
 import 'package:bloc_example_app/src/app_colors.dart';
-import 'package:bloc_example_app/views/auth/welcome_screen.dart';
+import 'package:bloc_example_app/views/welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<LoginBloc>(create: (_) => LoginBloc()),
         BlocProvider<RegisterBloc>(create: (context) => RegisterBloc()),
+        BlocProvider<HomeBloc>(create: (context) => HomeBloc()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
