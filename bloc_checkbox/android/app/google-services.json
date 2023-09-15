@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "881451589364",
+    "project_id": "yoga-app-b38da",
+    "storage_bucket": "yoga-app-b38da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881451589364:android:885f29ea15cfbb22b508a1",
+        "android_client_info": {
+          "package_name": "com.example.bloc_checkbox"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdq6TQHj1z7WHDoWD_NdR31OOs3wrtmIo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
