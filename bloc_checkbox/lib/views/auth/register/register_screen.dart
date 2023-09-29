@@ -1,6 +1,6 @@
 import 'package:bloc_example_app/blocs/auth/Register/Register_bloc.dart';
 import 'package:bloc_example_app/blocs/auth/register/register_state.dart';
-import 'package:bloc_example_app/repository/auth/register/register_repository.dart';
+import 'package:bloc_example_app/network/repository/repository_store.dart';
 import 'package:bloc_example_app/src/app_assets.dart';
 import 'package:bloc_example_app/src/app_colors.dart';
 import 'package:bloc_example_app/blocs/bloc_status.dart';
@@ -17,7 +17,8 @@ class RegisterScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.pageColor,
       body: BlocProvider(
-        create: (context) => RegisterBloc(authRepo: RegisterRepository()),
+        create: (context) =>
+            RegisterBloc(authRepo: RepositoryStore.authRepository),
         child: BlocListener<RegisterBloc, RegisterState>(
           listenWhen: (previous, current) =>
               previous.appStatus != current.appStatus,

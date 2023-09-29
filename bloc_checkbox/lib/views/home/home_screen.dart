@@ -2,7 +2,7 @@ import 'package:bloc_example_app/blocs/bloc_status.dart';
 import 'package:bloc_example_app/blocs/home/home_bloc.dart';
 import 'package:bloc_example_app/blocs/home/home_event.dart';
 import 'package:bloc_example_app/blocs/home/home_state.dart';
-import 'package:bloc_example_app/repository/home/home_repository.dart';
+import 'package:bloc_example_app/network/repository/repository_store.dart';
 import 'package:bloc_example_app/src/app_strings.dart';
 import 'package:bloc_example_app/views/home/widgets/app_drawer.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(title: const Text(AppStrings.appBarText)),
       drawer: const AppDrawer(),
       body: BlocProvider(
-        create: (context) => HomeBloc(homeRepo: HomeRepository()),
+        create: (context) => HomeBloc(homeRepo: RepositoryStore.homeRepository),
         child: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
             if (state.appStatus == const InitialStatus()) {

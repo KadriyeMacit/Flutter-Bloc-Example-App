@@ -1,11 +1,11 @@
 import 'package:bloc_example_app/blocs/auth/register/register_event.dart';
 import 'package:bloc_example_app/blocs/auth/register/register_state.dart';
-import 'package:bloc_example_app/repository/auth/register/register_repository.dart';
 import 'package:bloc_example_app/blocs/bloc_status.dart';
+import 'package:bloc_example_app/network/repository/auth/auth_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
-  final RegisterRepository? authRepo;
+  final AuthRepository? authRepo;
 
   RegisterBloc({this.authRepo}) : super(const RegisterState()) {
     on<RegisterEvent>((event, emit) async {
@@ -28,8 +28,9 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       emit(state.copyWith(appStatus: FormSubmitting()));
 
       try {
-        await authRepo?.register();
-        emit(state.copyWith(appStatus: SubmissionSuccess()));
+        await authRepo?.signUpWithEmail(
+            email: state.email, password: state.password);
+        emit(state.copyWith(appStatus: const SubmissionSuccess()));
       } catch (e) {
         emit(state.copyWith(appStatus: SubmissionFailed(e)));
       }

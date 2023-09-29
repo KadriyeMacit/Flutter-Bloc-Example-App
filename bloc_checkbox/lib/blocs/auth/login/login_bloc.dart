@@ -1,11 +1,11 @@
 import 'package:bloc_example_app/blocs/auth/login/login_event.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_state.dart';
 import 'package:bloc_example_app/blocs/bloc_status.dart';
-import 'package:bloc_example_app/repository/auth/login/login_repository.dart';
+import 'package:bloc_example_app/network/repository/auth/auth_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  final LoginRepository? authRepo;
+  final AuthRepository? authRepo;
 
   LoginBloc({this.authRepo}) : super(const LoginState()) {
     on<LoginEvent>((event, emit) async {
@@ -27,8 +27,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       emit(state.copyWith(appStatus: FormSubmitting()));
 
       try {
-        await authRepo?.login();
-        emit(state.copyWith(appStatus: SubmissionSuccess()));
+        await authRepo?.signInWithEmail(
+            email: state.email, password: state.password);
+        emit(state.copyWith(appStatus: const SubmissionSuccess()));
       } catch (e) {
         emit(state.copyWith(appStatus: SubmissionFailed(e)));
       }

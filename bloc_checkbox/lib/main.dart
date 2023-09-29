@@ -2,6 +2,7 @@ import 'package:bloc_example_app/blocs/auth/login/login_bloc.dart';
 import 'package:bloc_example_app/blocs/auth/register/register_bloc.dart';
 import 'package:bloc_example_app/blocs/home/home_bloc.dart';
 import 'package:bloc_example_app/firebase_options.dart';
+import 'package:bloc_example_app/network/repository/repository_store.dart';
 import 'package:bloc_example_app/src/app_colors.dart';
 import 'package:bloc_example_app/views/welcome/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -21,9 +22,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<LoginBloc>(create: (_) => LoginBloc()),
-        BlocProvider<RegisterBloc>(create: (context) => RegisterBloc()),
-        BlocProvider<HomeBloc>(create: (context) => HomeBloc()),
+        BlocProvider<LoginBloc>(
+            create: (_) => LoginBloc(authRepo: RepositoryStore.authRepository)),
+        BlocProvider<RegisterBloc>(
+            create: (context) =>
+                RegisterBloc(authRepo: RepositoryStore.authRepository)),
+        BlocProvider<HomeBloc>(
+            create: (context) =>
+                HomeBloc(homeRepo: RepositoryStore.homeRepository)),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

@@ -1,7 +1,7 @@
+import 'package:bloc_example_app/network/repository/repository_store.dart';
 import 'package:bloc_example_app/src/app_assets.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_bloc.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_state.dart';
-import 'package:bloc_example_app/repository/auth/login/login_repository.dart';
 import 'package:bloc_example_app/src/app_colors.dart';
 import 'package:bloc_example_app/blocs/bloc_status.dart';
 import 'package:bloc_example_app/views/auth/widgets/form_widget.dart';
@@ -18,7 +18,8 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.pageColor,
       body: BlocProvider(
-        create: (context) => LoginBloc(authRepo: LoginRepository()),
+        create: (context) =>
+            LoginBloc(authRepo: RepositoryStore.authRepository),
         child: BlocListener<LoginBloc, LoginState>(
           listenWhen: (previous, current) =>
               previous.appStatus != current.appStatus,
