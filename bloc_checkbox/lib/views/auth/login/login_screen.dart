@@ -1,5 +1,3 @@
-import 'package:bloc_example_app/blocs/home/home_bloc.dart';
-import 'package:bloc_example_app/blocs/home/home_event.dart';
 import 'package:bloc_example_app/src/app_assets.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_bloc.dart';
 import 'package:bloc_example_app/blocs/auth/login/login_state.dart';
