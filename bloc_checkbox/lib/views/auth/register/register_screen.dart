@@ -6,6 +6,7 @@ import 'package:bloc_example_app/src/app_colors.dart';
 import 'package:bloc_example_app/blocs/bloc_status.dart';
 import 'package:bloc_example_app/views/auth/widgets/form_widget.dart';
 import 'package:bloc_example_app/views/auth/widgets/have_account_text.dart';
+import 'package:bloc_example_app/views/welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,6 +28,10 @@ class RegisterScreen extends StatelessWidget {
 
             if (formStatus is SubmissionFailed) {
               _showSnackBar(context, formStatus.exception.toString());
+            }
+
+            if (formStatus is SubmissionSuccess) {
+              _goToWelcome(context);
             }
           },
           child: Center(
@@ -53,5 +58,12 @@ class RegisterScreen extends StatelessWidget {
   void _showSnackBar(BuildContext context, String message) {
     final snackBar = SnackBar(content: Text(message));
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
+  void _goToWelcome(BuildContext context) {
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => const WelcomeScreen()),
+        (route) => false);
   }
 }
