@@ -27,9 +27,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       emit(state.copyWith(appStatus: FormSubmitting()));
 
       try {
-        await authRepo?.signInWithEmail(
-            email: state.email, password: state.password);
-        emit(state.copyWith(appStatus: const SubmissionSuccess()));
+        await authRepo
+            ?.signInWithEmail(email: state.email, password: state.password)
+            .then((value) {
+          emit(state.copyWith(appStatus: const SubmissionSuccess()));
+        });
       } catch (e) {
         emit(state.copyWith(appStatus: SubmissionFailed(e)));
       }

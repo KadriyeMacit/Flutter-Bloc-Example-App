@@ -27,9 +27,9 @@ class PasswordField extends StatelessWidget {
                 validator: (value) => state.isValidPassword
                     ? null
                     : AppStrings.isValidPasswordMessage,
-                onChanged: (value) => context.read<LoginBloc>().add(
-                      LoginPasswordChanged(password: value),
-                    ),
+                onChanged: (value) => context
+                    .read<LoginBloc>()
+                    .add(LoginPasswordChanged(password: value)),
               );
             },
           )
@@ -44,9 +44,9 @@ class PasswordField extends StatelessWidget {
                 validator: (value) => state.isValidPassword
                     ? null
                     : AppStrings.isValidPasswordMessage,
-                onChanged: (value) => context.read<RegisterBloc>().add(
-                      RegisterPasswordChanged(password: value),
-                    ),
+                onChanged: (value) => context
+                    .read<RegisterBloc>()
+                    .add(RegisterPasswordChanged(password: value)),
               );
             },
           );
