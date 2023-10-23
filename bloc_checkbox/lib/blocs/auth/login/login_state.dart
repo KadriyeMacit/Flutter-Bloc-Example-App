@@ -12,7 +12,7 @@ class LoginState extends Equatable {
   bool get isValidEmail => email.length > 3;
 
   final String password;
-  bool get isValidPassword => password.length > 6;
+  bool get isValidPassword => password.length > 5;
 
   final AppSubmissionStatus appStatus;
 

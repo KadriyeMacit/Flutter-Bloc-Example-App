@@ -13,7 +13,7 @@ class AuthService {
 
   Future<User?> signInWithEmail(
       {required String email, required String password}) async {
-    _callFirebaseEmulator();
+    // _callFirebaseEmulator();
     final UserCredential user = await _auth.signInWithEmailAndPassword(
         email: email, password: password);
     return user.user;
